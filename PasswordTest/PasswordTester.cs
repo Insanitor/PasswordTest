@@ -11,11 +11,10 @@ namespace PasswordTest
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(TestPasswordLength("Password1"));
-            Console.WriteLine(TestPasswordContainsNumber("Password1"));
             Console.ReadKey();
         }
-        
+
+        #region Tests
         //Check if password lenght is higher or equal to 5 and less or equal to 10
         static string TestPasswordLength(string password = "")
         {
@@ -29,6 +28,7 @@ namespace PasswordTest
             PasswordValidator pv = new PasswordValidator();
             return pv.ContainsNumber(password) ? "Password is valid" : "Password is invalid";
         }
+        #endregion
 
         #region Customers have unrealistic expectations.
         ////Find the meaning of life
@@ -38,18 +38,5 @@ namespace PasswordTest
         //    return dt.CalculateMeaningOfLife();
         //}
         #endregion
-    }
-
-    internal class PasswordValidator
-    {
-        internal bool ContainsNumber(string password)
-        {
-            return password.Any(c => Char.IsDigit(c)) ? true : false;
-        }
-
-        internal bool IsLengthValid(string password)
-        {
-            return password.Length >= 5 && password.Length <= 10 ? true : false;
-        }
     }
 }
